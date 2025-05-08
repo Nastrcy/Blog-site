@@ -5,10 +5,10 @@ import methodOverride from "method-override";
 const app = express();
 const port = 3000;
 
-// Middleware setup - ORDER MATTERS!
+
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing form data
-app.use(methodOverride("_method")); // must come after bodyParser
+app.use(methodOverride("_method")); 
 app.set("view engine", "ejs");
 
 let posts = []; // global array to store posts
@@ -42,7 +42,7 @@ app.post("/delete", (req, res) => {
     res.render("edit.ejs", { post, index });
   });
   
-  // Route to handle updating a post
+ 
   app.put("/update/:index", (req, res) => {
     const index = parseInt(req.params.index);
     const updatedContent = req.body.text;
