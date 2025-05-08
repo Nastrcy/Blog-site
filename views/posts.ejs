@@ -1,0 +1,22 @@
+<%- include('./partials/header.ejs') %>
+
+<main>
+<div class="container">
+    <% if (cont.length > 0) { %>
+        <h2>Your Blogy</h2>
+        <% cont.forEach((post, index) => { %>
+          <div class="post m-2">
+            <p class="par"><strong>Post <%= index + 1 %>:</strong> <%= post %></p>
+            <form action="/delete" method="POST" style="display:inline;">
+              <input type="hidden" name="index" value="<%= index %>">
+              <button type="submit">Delete</button>
+            </form>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <p class="m-3">You don't have any Blogys yet</p>
+      <% } %>
+</div>
+</main>
+
+<%- include('./partials/footer.ejs') %>

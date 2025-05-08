@@ -1,0 +1,14 @@
+<%- include('./partials/header.ejs') %>
+
+<main class="main">
+  <div class="form-container">
+    <h1>Edit Your Blogy</h1>
+    <form action="/update/<%= index %>?_method=PUT" method="POST">
+      <label for="content">Edit Content</label>
+      <textarea id="content" name="text" rows="6" required><%= post %></textarea>
+      <button type="submit">Update</button>
+    </form>
+  </div>
+</main>
+
+<%- include('./partials/footer.ejs') %>
